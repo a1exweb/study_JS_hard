@@ -1,14 +1,12 @@
 'use strict';
 
-const text = function (x) {
-    if (typeof(x) !== 'string') {
-        return 'Аргумент не является строкой, передайте пожалуйста значение в виде строки.';
-    } else {
-        x = x.trim();
-        if (x.length > 30) x = x.slice(0, 30) + '...';
-        return x;
-    }
-}
+let arr = ['111', '222', '332', '444', '554', '666', '777'];
+console.log(arr.filter((num) => [ '2', '4' ].includes(num[0])));
 
-alert(text('           Аргумент является строкой, отработало условие проверки.   '));
-alert(text(111));
+label:
+for (let i = 2; i <= 100; i++) {
+    for (let j = 2; j < i; j++) {
+        if (i % j == 0) continue label;
+    }
+    console.log(`${i} - делители этого числа: 1 и ${i}`);
+}
