@@ -1,12 +1,26 @@
 'use strict';
 
-let arr = ['111', '222', '332', '444', '554', '666', '777'];
-console.log(arr.filter((num) => [ '2', '4' ].includes(num[0])));
+const week = ['Понедельник', 'Вторник', 'Среда', 'Четверг', 'Пятница', 'Суббота', 'Воскресенье'];
 
-label:
-for (let i = 2; i <= 100; i++) {
-    for (let j = 2; j < i; j++) {
-        if (i % j == 0) continue label;
-    }
-    console.log(`${i} - делители этого числа: 1 и ${i}`);
-}
+const todayDay = new Date();
+
+const days = function() {
+    week.forEach((item, i) => {
+        let div = document.createElement('div'),
+            day = week[i];
+        div.innerHTML = day;
+
+        if (i === +todayDay.getDay()-1) { 
+            console.log(todayDay.getDay());
+            div.style.fontWeight = 'bold';
+            div.textContent = week[i]; 
+        }
+        if (item == 'Суббота' || item == 'Воскресенье') { 
+            div.style.fontStyle = 'italic';
+            div.textContent = week[i];
+        } else {
+            div.textContent = week[i]; 
+        }
+        document.body.appendChild(div);
+    });
+}();
